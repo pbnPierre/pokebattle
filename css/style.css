@@ -1,0 +1,67 @@
+.item-list .type-button{
+    cursor: pointer;
+}
+
+.type-button{
+    background: url('../img/types.png') transparent;
+    background-position: 594px -529px;
+    width: 289px;
+    height: 121px;
+    display: inline-block;
+}
+
+
+.type-button.Dark{
+    background-position: 295px -4px;
+}
+.type-button.Fighting{
+    background-position: 295px -136px;
+}
+.type-button.Thunder{
+    background-position: 295px -268px;
+}
+.type-button.Bug{
+    background-position: 295px -399px;
+}
+.type-button.Ghost{
+    background-position: 594px -4px;
+}
+.type-button.Steel{
+    background-position: 594px -136px;
+}
+.type-button.Water{
+    background-position: 594px -267px;
+}
+.type-button.Poison{
+    background-position: 594px -399px;
+}
+.type-button.Fairy{
+    background-position: 894px -5px;
+}
+.type-button.Ground{
+    background-position: 894px -136px;
+}
+.type-button.Fire{
+    background-position: 894px -267px;
+}
+.type-button.Ice{
+    background-position: 894px -399px;
+}
+.type-button.Normal{
+    background-position: 894px -529px;
+}
+.type-button.Psychic{
+    background-position: -6px -5px;
+}
+.type-button.Rock{
+    background-position: -6px -136px;
+}
+.type-button.Grass{
+    background-position: -6px -267px;
+}
+.type-button.Dragon{
+    background-position: -6px -399px;
+}
+.type-button.Flying{
+    background-position: -6px -529px;
+}
