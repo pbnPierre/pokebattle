@@ -10,7 +10,7 @@
             <div class="col-md-6">
                 <h2>Primary type</h2>
                 <div class="row">
-                    <div  class="type-button {{ types.primary }}"></div>
+                    <div  class="type-button {{ types.primary }}" data-ng-click="removePrimary()"></div>
                 </div>
                 <div class="row item-list">
                     <div data-ng-repeat="element in elements" data-ng-click="selectPrimary(element.name)"  class="type-button {{ element.name }}" ng-if="element.name != types.secondary && element.name != types.primary"></div>
@@ -19,7 +19,7 @@
             <div class="col-md-6">
                 <h2>Secondary type</h2>
                 <div class="row">
-                    <div  class="type-button {{ types.secondary }}"></div>
+                    <div  class="type-button {{ types.secondary }}" data-ng-click="removeSecondary()"></div>
                 </div>
                 <div class="row item-list">
                     <div data-ng-repeat="element in elements" data-ng-click="selectSecondary(element.name)"  class="type-button {{ element.name }}" ng-if="element.name != types.secondary && element.name != types.primary"></div>
@@ -32,34 +32,46 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h2>It's super effective</h2>
-            <div class="row">
-                <div data-ng-repeat="element in effects.supereffective" class="type-button {{ element.name }}" ></div>
-            </div>
-            <h2>It's very effective</h2>
-            <div class="row">
-                <div data-ng-repeat="element in effects.veryeffective" class="type-button {{ element.name }}" ></div>
-            </div>
+            <span ng-if="effects.supereffective.length > 0">
+                <h2>It's super effective (Damages x 4)</h2>
+                <div class="row">
+                    <div data-ng-repeat="element in effects.supereffective" class="type-button {{ element.name }}" ></div>
+                </div>
+            </span>
+            <span ng-if="effects.veryeffective.length > 0">
+                <h2>It's very effective (Damages x 2)</h2>
+                <div class="row">
+                    <div data-ng-repeat="element in effects.veryeffective" class="type-button {{ element.name }}" ></div>
+                </div>
+            </span>
         </div>
         <div class="col-md-4">
-            <h2>Normal attack</h2>
-            <div class="row">
-                <div data-ng-repeat="element in effects.normal" class="type-button {{ element.name }}" ></div>
-            </div>
+            <span ng-if="effects.normal.length > 0">
+                <h2>Normal attack</h2>
+                <div class="row">
+                    <div data-ng-repeat="element in effects.normal" class="type-button {{ element.name }}" ></div>
+                </div>
+            </span>
         </div>
         <div class="col-md-4">
-            <h2>It's not very effective</h2>
-            <div class="row">
-                <div data-ng-repeat="element in effects.notveryeffective" class="type-button {{ element.name }}"></div>
-            </div>
-            <h2>It's not very effective at all</h2>
-            <div class="row">
-                <div data-ng-repeat="element in effects.notveryeffectiveatall" class="type-button {{ element.name }}"></div>
-            </div>
-            <h2>It doesn't affect</h2>
-            <div class="row">
-                <div data-ng-repeat="element in effects.doesnotaffect" class="type-button {{ element.name }}"></div>
-            </div>
+            <span ng-if="effects.notveryeffective.length > 0">
+                <h2>It's not very effective (Damages / 2)</h2>
+                <div class="row">
+                    <div data-ng-repeat="element in effects.notveryeffective" class="type-button {{ element.name }}"></div>
+                </div>
+            </span>
+            <span ng-if="effects.notveryeffectiveatall.length > 0">
+                <h2>It's not very effective at all (Damages / 4)</h2>
+                <div class="row">
+                    <div data-ng-repeat="element in effects.notveryeffectiveatall" class="type-button {{ element.name }}"></div>
+                </div>
+            </span>
+            <span ng-if="effects.doesnotaffect.length > 0">
+                <h2>It doesn't affect (No damages)</h2>
+                <div class="row">
+                    <div data-ng-repeat="element in effects.doesnotaffect" class="type-button {{ element.name }}"></div>
+                </div>
+            </span>
         </div>
     </div>
 </div>

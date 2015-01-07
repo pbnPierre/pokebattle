@@ -8,24 +8,33 @@ PokebattleApp.config(function ($routeProvider) {
 PokebattleApp.run(function ($rootScope) {});
 
 PokebattleApp.controller('WeaknessAndStrengthController', ['$scope', function ($scope) {
-    // Function piquée sur le net pour faire un shuffle il doit y avoir mieux
     $scope.calculate = function(){
         $scope.initialize();
-
-        $scope.calculateElements($scope.types.primary, $scope.types.secondary);
+        if ($scope.types.primary != undefined)
+        {
+            $scope.calculateElements($scope.types.primary, $scope.types.secondary);
+        }
     };
-
 
     $scope.selectPrimary = function(name)
     {
         $scope.types.primary = name;
         $scope.calculate();
     }
+    $scope.removePrimary = function()
+    {
+        $scope.types.primary = undefined;
+    };
     $scope.selectSecondary = function(name)
     {
         $scope.types.secondary = name;
         $scope.calculate();
     }
+    $scope.removeSecondary = function()
+    {
+        $scope.types.secondary = undefined;
+    };
+
 
     $scope.print = function() {
         window.print();
@@ -46,7 +55,11 @@ PokebattleApp.controller('WeaknessAndStrengthController', ['$scope', function ($
     {
         jQuery.each($scope.elements, function(index, element)
         {
-            var strength = element.effects[primary] * element.effects[secondary];
+            var strength = element.effects[primary];
+            if (secondary != undefined)
+            {
+                strength = strength * element.effects[secondary];
+            }
 
             if (strength == 0)
             {
@@ -76,13 +89,10 @@ PokebattleApp.controller('WeaknessAndStrengthController', ['$scope', function ($
     }
 
     $scope.types = {
-        primary: '',
-        secondary: ''
+        primary: undefined,
+        secondary: undefined
     };
 
-    $scope.initialize();
-
     $scope.elements = elementDefinitions;
-
     $scope.calculate();
 }]);
