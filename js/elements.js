@@ -275,8 +275,8 @@ var elementDefinitions = {
             Flying: 1
         }
     },
-    Psychic:  {
-        name: "Psychic",
+    Psy:  {
+        name: "Psy",
         effects: {
             Steel: 0.5,
             Fighting: 2,
