@@ -3,14 +3,23 @@
         <h1>
             Poke Battle
         </h1>
-        <p>
-            Choose your pokemon primary and secondary types
-            or enter your pokemon name
-        </p>
-        <p>
-            <input type="text" name="pokemon" data-ng-model="pokemon" />
-            <button type="button" class="btn btn-lg btn-primary" data-ng-click="calculateFromPokemonName()">Find</button>
-        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <p>
+                    Choose your pokemon primary and secondary types
+                    or enter your pokemon name
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p>
+                    <input type="text" name="pokemon" data-ng-model="pokemon" />
+                    <button type="button" class="btn btn-lg btn-primary" data-ng-click="calculateFromPokemonName()">Find</button>
+                </p>
+                <p ng-if="pokemonSprite">
+                    <img src="{{ pokemonSprite }}" />
+                </p>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <h2>Primary type</h2>

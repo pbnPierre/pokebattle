@@ -41,6 +41,7 @@ PokebattleApp.controller('WeaknessAndStrengthController', ['$scope', function ($
         primary: undefined,
         secondary: undefined
     };
+    $scope.pokemonSprite = undefined;
     $scope.elements = elementDefinitions;
 
     $scope.calculate = function(){
@@ -147,6 +148,18 @@ PokebattleApp.controller('WeaknessAndStrengthController', ['$scope', function ($
                         jQuery.getJSON(
                             ressourceUrl,
                             function(data){
+                                if (data.sprites[0] != undefined)
+                                {
+                                    jQuery.getJSON(
+                                        apiBase + data.sprites[0].resource_uri,
+                                        function(data)
+                                        {
+                                            $scope.pokemonSprite = apiBase + data.image;
+                                            $scope.$apply();
+                                        }
+                                    );
+                                }
+
                                 $scope.selectPrimary(data.types[0].name.ucfirst());
 
                                 if (data.types[1] != undefined)
