@@ -5,6 +5,11 @@
         </h1>
         <p>
             Choose your pokemon primary and secondary types
+            or enter your pokemon name
+        </p>
+        <p>
+            <input type="text" name="pokemon" data-ng-model="pokemon" />
+            <button type="button" class="btn btn-lg btn-primary" data-ng-click="calculateFromPokemonName()">Find</button>
         </p>
         <div class="row">
             <div class="col-md-6">
